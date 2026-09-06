@@ -33,26 +33,33 @@ export default function WhyFambrood() {
     },
   ];
   return (
-    <div className="space-y-2">
-      <p className="text-2xl font-bold text-center">Why Choose Fambrood?</p>
-      <p className="text-center">
-        We pride ourselves on delivering a professional, family-oriented service
-        that treats your space with the respect it deserves.
-      </p>
-      <div className="flex gap-4 py-2 px-4">
-        {reasons.map((reason, index) => (
+    <section
+      id="why-us"
+      className="scroll-mt-16 mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20"
+    >
+      <div className="mx-auto max-w-2xl space-y-2 text-center">
+        <p className="text-2xl font-bold sm:text-3xl">Why Choose Fambrood?</p>
+        <p className="text-muted-foreground">
+          We pride ourselves on delivering a professional, family-oriented
+          service that treats your space with the respect it deserves.
+        </p>
+      </div>
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+        {reasons.map((reason) => (
           <div
-            key={index}
-            className="flex flex-col gap-2 bg-gray-200 rounded-md p-2"
+            key={reason.title}
+            className="flex flex-col gap-3 rounded-xl bg-muted p-4 transition-shadow hover:shadow-md sm:p-5"
           >
-            <div className="bg-white rounded-xl p-2 flex items-center gap-2">
-              <reason.icon />
+            <div className="flex items-center gap-2 rounded-xl bg-white p-2.5 shadow-xs">
+              <reason.icon className="h-5 w-5 shrink-0 text-olive-700" />
               <span className="font-semibold">{reason.title}</span>
             </div>
-            <span className="text-sm">{reason.description}</span>
+            <span className="text-sm text-muted-foreground">
+              {reason.description}
+            </span>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
